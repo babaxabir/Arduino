@@ -1,0 +1,73 @@
+int enable1Pin=13;
+int enable2Pin=6;
+int in11Pin=11;
+int in12Pin=12;
+int in21Pin=10;
+int in22Pin=9;
+int leftPin=8;
+int rightPin=7;
+int frontPin=4;
+int backPin=2;
+void setup(){
+  pinMode(in11Pin,OUTPUT);
+  pinMode(in12Pin,OUTPUT);
+  pinMode(in21Pin,OUTPUT);
+  pinMode(in22Pin,OUTPUT);
+  pinMode(enable1Pin,OUTPUT);
+  pinMode(enable2Pin,OUTPUT);
+  pinMode(leftPin,INPUT_PULLUP);
+  pinMode(rightPin,INPUT_PULLUP);
+  pinMode(frontPin,INPUT_PULLUP);
+  pinMode(backPin,INPUT_PULLUP);
+
+}
+void loop(){
+  int stateFront=digitalRead(frontPin);
+  int stateBack=digitalRead(backPin);
+  int stateLeft=digitalRead(leftPin);
+  int stateRight=digitalRead(rightPin);
+  if (stateFront==HIGH&&stateBack==HIGH&&stateLeft==HIGH&&stateRight==HIGH){
+    digitalWrite(enable1Pin,LOW);
+    digitalWrite(enable2Pin,LOW);
+  }
+
+  else{
+    if(stateFront==LOW&&stateBack==HIGH&&stateLeft==HIGH&&stateRight==HIGH){
+  	  digitalWrite(enable1Pin,HIGH);
+      digitalWrite(enable2Pin,HIGH);
+      digitalWrite(in11Pin,LOW);
+      digitalWrite(in21Pin,LOW);
+      digitalWrite(in12Pin,HIGH);
+      digitalWrite(in22Pin,HIGH);
+  }
+
+    else{
+      if (stateFront==HIGH&&stateBack==LOW&&stateLeft==HIGH&&stateRight==HIGH){
+       digitalWrite(enable1Pin,HIGH);
+       digitalWrite(enable2Pin,HIGH);
+       digitalWrite(in11Pin,HIGH);
+       digitalWrite(in21Pin,HIGH);
+       digitalWrite(in12Pin,LOW);
+       digitalWrite(in22Pin,LOW);
+  }
+
+       else{
+        if (stateFront==HIGH&&stateBack==HIGH&&stateLeft==LOW&&stateRight==HIGH){
+         digitalWrite(enable1Pin,HIGH);
+         digitalWrite(enable2Pin,HIGH);
+         digitalWrite(in11Pin,HIGH);
+         digitalWrite(in21Pin,LOW);
+         digitalWrite(in12Pin,LOW);
+         digitalWrite(in22Pin,HIGH);
+  }
+
+         else{
+          if (stateFront==HIGH&&stateBack==HIGH&&stateLeft==HIGH&&stateRight==LOW){
+           digitalWrite(enable1Pin,HIGH);
+           digitalWrite(enable2Pin,HIGH);
+           digitalWrite(in11Pin,LOW);
+           digitalWrite(in21Pin,HIGH);
+           digitalWrite(in12Pin,HIGH);
+           digitalWrite(in22Pin,LOW);
+  }
+         }}}}}

@@ -1,0 +1,5 @@
+Name,Quantity,Component
+"UdriveIC",1," H-bridge Motor Driver"
+"MrightEngine, MLeftEngine",2," DC Motor"
+"U3",1," Arduino Uno R3"
+"SleftButton, SrightButton, SfrontButton, SbackButton",4," Pushbutton"
